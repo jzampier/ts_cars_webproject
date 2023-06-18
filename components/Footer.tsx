@@ -15,7 +15,7 @@ const Footer = () => {
             className="object-contain"
           />
           <p className="text-base text-gray-700">
-            Aluguel de Carros 2023 <br />
+            Nosdaj 2023 <br />
             Todos os direitos reservados &copy;
           </p>
         </div>
@@ -34,6 +34,17 @@ const Footer = () => {
               ))}
             </div>
           ))}
+        </div>
+      </div>
+      <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
+        <p>@2023 Nosdaj. Todos os direitos reservados</p>
+        <div className="footer__copyrights-link">
+          <Link href={'/'} className="text-gray-500">
+            Política de Privacidade
+          </Link>
+          <Link href={'/'} className="text-gray-500">
+            Termos de Uso
+          </Link>
         </div>
       </div>
     </footer>
