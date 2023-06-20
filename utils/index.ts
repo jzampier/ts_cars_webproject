@@ -13,3 +13,29 @@ export async function fetchCars() {
 
   return result;
 }
+
+export function calculateCarRent(consumo: number, anoFabricacao: number) {
+  const precoBaseDiario = 100; // Preço base diário do aluguel
+
+  // Fator de ajuste com base no consumo de combustível
+  let fatorConsumo: number;
+  if (consumo <= 10) {
+    fatorConsumo = 1.2;
+  } else if (consumo <= 15) {
+    fatorConsumo = 1;
+  } else {
+    fatorConsumo = 0.8;
+  }
+
+  // Fator de ajuste com base no ano de fabricação
+  const anoReferencia = 2003; // Ano de referência para o cálculo
+  const anosDeUso = anoReferencia - anoFabricacao;
+  const fatorAnoFabricacao =
+    anosDeUso >= 0 ? 1 - anosDeUso * 0.05 : 1 + Math.abs(anosDeUso) * 0.05;
+
+  // Cálculo do preço do aluguel diário
+  const precoAluguelDiario =
+    precoBaseDiario * fatorConsumo * fatorAnoFabricacao;
+
+  return precoAluguelDiario.toFixed(0);
+}
